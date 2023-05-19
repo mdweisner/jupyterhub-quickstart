@@ -22,19 +22,19 @@ You can use the official Jupyter project ``docker-stacks`` images, but some extr
 To load an image stream definition for a minimal Jupyter notebook image designed to run in OpenShift, run:
 
 ```
-oc apply -f https://raw.githubusercontent.com/jupyter-on-openshift/jupyter-notebooks/master/image-streams/s2i-minimal-notebook.json
+oc apply -f https://raw.githubusercontent.com/mdweisner/jupyter-notebooks/master/image-streams/s2i-minimal-notebook.json
 ```
 
 An image stream named ``s2i-minimal-notebook`` should be created in your project, with tags ``3.5`` and ``3.6``, corresponding to Python 3.5 and 3.6 variants of the notebook image. This image is based on CentOS.
 
 For more detailed instructions on creating the minimal notebook image, including how to build it from source code or using a RHEL base image, as well as how to create custom notebook images, read:
 
-* https://github.com/jupyter-on-openshift/jupyter-notebooks
+* https://github.com/mdweisner/jupyter-notebooks
 
 To load the JupyterHub image, next run:
 
 ```
-oc apply -f https://raw.githubusercontent.com/jupyter-on-openshift/jupyterhub-quickstart/master/image-streams/jupyterhub.json
+oc apply -f https://raw.githubusercontent.com/mdweisner/jupyterhub-quickstart/master/image-streams/jupyterhub.json
 ```
 
 An image stream named ``jupyterhub`` should be created in your project, with a tag corresponding to whatever is the latest version. This image is also based on CentOS.
@@ -42,7 +42,7 @@ An image stream named ``jupyterhub`` should be created in your project, with a t
 If you are using OpenShift Container Platform, and need to instead build a RHEL based version of the JupyterHub image, you can use the command:
 
 ```
-oc apply -f https://raw.githubusercontent.com/jupyter-on-openshift/jupyterhub-quickstart/master/build-configs/jupyterhub.json
+oc apply -f https://raw.githubusercontent.com/mdweisner/jupyterhub-quickstart/master/build-configs/jupyterhub.json
 ```
 
 Use one or the other method. Do not load the image stream and try and create a build config to create it, at the same time.
@@ -53,10 +53,10 @@ Loading the JupyterHub Templates
 To make it easier to deploy JupyterHub in OpenShift, templates are provided. To load the templates run:
 
 ```
-oc apply -f https://raw.githubusercontent.com/jupyter-on-openshift/jupyterhub-quickstart/master/templates/jupyterhub-builder.json
-oc apply -f https://raw.githubusercontent.com/jupyter-on-openshift/jupyterhub-quickstart/master/templates/jupyterhub-deployer.json
-oc apply -f https://raw.githubusercontent.com/jupyter-on-openshift/jupyterhub-quickstart/master/templates/jupyterhub-quickstart.json
-oc apply -f https://raw.githubusercontent.com/jupyter-on-openshift/jupyterhub-quickstart/master/templates/jupyterhub-workspace.json
+oc apply -f https://raw.githubusercontent.com/mdweisner/jupyterhub-quickstart/master/templates/jupyterhub-builder.json
+oc apply -f https://raw.githubusercontent.com/mdweisner/jupyterhub-quickstart/master/templates/jupyterhub-deployer.json
+oc apply -f https://raw.githubusercontent.com/mdweisner/jupyterhub-quickstart/master/templates/jupyterhub-quickstart.json
+oc apply -f https://raw.githubusercontent.com/mdweisner/jupyterhub-quickstart/master/templates/jupyterhub-workspace.json
 ```
 
 This should result in the creation of the templates ``jupyterhub-builder``, ``jupyterhub-deployer``, ``jupyterhub-quickstart`` and ``jupyterhub-workspace``.
